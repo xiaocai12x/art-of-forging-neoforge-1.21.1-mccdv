@@ -40,6 +40,8 @@ jobs:
           chmod +x tetra-port/tetra/gradlew
 
       - name: Build Tetra dependencies
+        env:
+          local_maven: ${{ github.workspace }}/.m2/repository
         run: |
           cd tetra-port/mutil
           ./gradlew --no-daemon publishToMavenLocal
