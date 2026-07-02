@@ -18,8 +18,9 @@ The build looks for dependencies in this order:
 
 1. `libs/tetra-1.21.1-6.13.0.jar` and `libs/mutil-1.21.1-6.3.1.jar`
 2. `../../tetra-port/tetra/build/libs/tetra-1.21.1-6.13.0.jar` and `../../tetra-port/mutil/build/libs/mutil-1.21.1-6.3.1.jar`
+3. `tetra-port/tetra/build/libs/tetra-1.21.1-6.13.0.jar` and `tetra-port/mutil/build/libs/mutil-1.21.1-6.3.1.jar`
 
-For GitHub Actions, either commit/copy the two jars into `libs/`, or build the local `tetra-port` projects before building this addon.
+For GitHub Actions, the workflow checks out the MCCDV Tetra and Mutil ports into `tetra-port/`, builds Mutil into Maven local, builds Tetra, then builds this addon. Do not commit the Tetra jar into this public repository; Tetra's upstream license text does not allow redistributing the full project as a compiled artifact.
 
 ## Porting choices
 

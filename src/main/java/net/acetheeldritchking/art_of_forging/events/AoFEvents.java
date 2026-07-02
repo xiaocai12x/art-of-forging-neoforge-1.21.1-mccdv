@@ -4,10 +4,10 @@ import net.acetheeldritchking.art_of_forging.ArtOfForging;
 import net.acetheeldritchking.art_of_forging.capabilities.AoFPlayerData;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 
 
-@Mod.EventBusSubscriber(modid = ArtOfForging.MOD_ID)
+@EventBusSubscriber(modid = ArtOfForging.MOD_ID)
 public class AoFEvents {
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {

@@ -67,19 +67,27 @@ neoForge {
 }
 
 dependencies {
-    implementation files(findLocalDependency('tetra-1.21.1-6.13.0.jar', '../../tetra-port/tetra/build/libs/tetra-1.21.1-6.13.0.jar'))
-    implementation files(findLocalDependency('mutil-1.21.1-6.3.1.jar', '../../tetra-port/mutil/build/libs/mutil-1.21.1-6.3.1.jar'))
+    implementation files(findLocalDependency('tetra-1.21.1-6.13.0.jar',
+            '../../tetra-port/tetra/build/libs/tetra-1.21.1-6.13.0.jar',
+            'tetra-port/tetra/build/libs/tetra-1.21.1-6.13.0.jar'))
+    implementation files(findLocalDependency('mutil-1.21.1-6.3.1.jar',
+            '../../tetra-port/mutil/build/libs/mutil-1.21.1-6.3.1.jar',
+            'tetra-port/mutil/build/libs/mutil-1.21.1-6.3.1.jar'))
 
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 }
 
-def findLocalDependency(String fileName, String fallbackPath) {
-    def bundled = file("libs/${fileName}")
-    if (bundled.exists()) {
-        return bundled
+def findLocalDependency(String fileName, String... fallbackPaths) {
+    def candidates = [file("libs/${fileName}")]
+    fallbackPaths.each { candidates.add(file(it)) }
+
+    def found = candidates.find { it.exists() }
+    if (found != null) {
+        return found
     }
-    return file(fallbackPath)
+
+    return candidates.last()
 }
 
 tasks.withType(ProcessResources).configureEach {

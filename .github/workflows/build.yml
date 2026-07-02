@@ -13,14 +13,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout Mutil
+        uses: actions/checkout@v4
+        with:
+          repository: evelant/mutil
+          ref: 1.21.1
+          path: tetra-port/mutil
+
+      - name: Checkout Tetra
+        uses: actions/checkout@v4
+        with:
+          repository: evelant/tetra
+          ref: 1.21
+          path: tetra-port/tetra
+
       - name: Set up Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
-      - name: Make Gradle wrapper executable
-        run: chmod +x ./gradlew
+      - name: Make Gradle wrappers executable
+        run: |
+          chmod +x ./gradlew
+          chmod +x tetra-port/mutil/gradlew
+          chmod +x tetra-port/tetra/gradlew
+
+      - name: Build Tetra dependencies
+        run: |
+          cd tetra-port/mutil
+          ./gradlew --no-daemon publishToMavenLocal
+          cd ../tetra
+          ./gradlew --no-daemon build
 
       - name: Build
         run: ./gradlew --no-daemon build
