@@ -40,8 +40,9 @@
                 "availableTextures": [ "default" ],
                 "models": [
                     {
-                        "location": "tetra:items/module/crossbow/stave/dreadnought_stave/",
-                        "type": "static"
+                        "type": "tetra:filtered_grid_texture",
+                        "location": "tetra:item/module/crossbow/stave/dreadnought_stave/",
+                        "filter": "static"
                     }
                 ]
             }
