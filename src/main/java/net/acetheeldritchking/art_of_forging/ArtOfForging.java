@@ -96,7 +96,7 @@ public class ArtOfForging {
         // Soul Charged
         NeoForge.EVENT_BUS.register(new SoulChargedEffect());
         // Sonic Shock
-        NeoForge.EVENT_BUS.register(new SonicShockEffect());
+        // SonicShockEffect only defines a charged ability and client stats, not event listeners.
         // Conquering
         NeoForge.EVENT_BUS.register(new ConqueringEffect());
         // Subjugation
@@ -119,9 +119,6 @@ public class ArtOfForging {
         NeoForge.EVENT_BUS.register(new CurioHasteEffect());
         // Third Sight
         NeoForge.EVENT_BUS.register(new CurioGlowingEffect());
-
-        // Register ourselves for server and other game events we are interested in
-        NeoForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
