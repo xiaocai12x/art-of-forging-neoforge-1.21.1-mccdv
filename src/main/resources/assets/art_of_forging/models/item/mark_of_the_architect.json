@@ -1,9 +1,9 @@
 {
-    "parent": "forge:item/default",
+    "parent": "neoforge:item/default",
     "base": {
         "parent": "art_of_forging:item/mark_of_the_architect_3d"
     },
-    "loader": "forge:separate_transforms",
+    "loader": "neoforge:separate_transforms",
     "perspectives": {
         "gui": {
             "parent": "art_of_forging:item/mark_of_the_architect_2d",
