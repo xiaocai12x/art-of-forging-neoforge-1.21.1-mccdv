@@ -78,7 +78,7 @@ public class SubjugationEffect extends ChargedAbilityEffect {
                         subjugation.addSubjugation(1);
 
                         if (subjugation.getSubjugation() == 10) {
-                            target.addEffect(new MobEffectInstance(PotionEffects.TARGETED.get(), eff * 20, 0,
+                            target.addEffect(new MobEffectInstance(PotionEffects.TARGETED, eff * 20, 0,
                                     false, false, true));
                         }
                     });
@@ -104,7 +104,7 @@ public class SubjugationEffect extends ChargedAbilityEffect {
                 // Duration of effects
                 int eff = (int) item.getEffectEfficiency(itemStack, subjugationEffect);
 
-                if (subjugation.getSubjugation() == 10 && target.hasEffect(PotionEffects.TARGETED.get())) {
+                if (subjugation.getSubjugation() == 10 && target.hasEffect(PotionEffects.TARGETED)) {
                     // Reset
                     subjugation.resetSubjugation();
 
@@ -131,7 +131,7 @@ public class SubjugationEffect extends ChargedAbilityEffect {
         if (result != AbilityUseResult.fail) {
             target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, duration * 20, 1,
                     true, true, true));
-            target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, duration * 20, 1,
+            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, duration * 20, 1,
                     true, true, true));
             target.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, duration * 20, 1,
                     true, true, true));

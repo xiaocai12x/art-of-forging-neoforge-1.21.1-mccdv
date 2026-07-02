@@ -68,7 +68,7 @@ public class InfernalRebukeEffect {
                 if (level > 0 && eff > (attacker.getRandom().nextFloat()*100))
                 {
                     attacker.knockback(0.4, vec3.x, vec3.z);
-                    attacker.setSecondsOnFire(level);
+                    attacker.igniteForSeconds(level);
 
                     // Play Sound
                     target.level().playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.SHIELD_BLOCK, SoundSource.PLAYERS, 0.5F, 1.0F);

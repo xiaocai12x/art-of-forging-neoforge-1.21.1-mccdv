@@ -55,7 +55,7 @@ public class CurioHasteEffect implements ICurioItem {
                         int eff = (int) item.getEffectEfficiency(itemStack, hasteInfusedEffect);
 
                         if (level > 0) {
-                            event.getEntity().addEffect(new MobEffectInstance(MobEffects.HASTE, eff * 20,
+                            event.getEntity().addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, eff * 20,
                                     level - 1, true, true, true));
                         }
                     }

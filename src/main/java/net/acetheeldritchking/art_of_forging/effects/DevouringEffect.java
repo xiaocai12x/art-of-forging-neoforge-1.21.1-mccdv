@@ -55,7 +55,7 @@ public class DevouringEffect {
                             (PlayerDevouring::resetDevour);
 
                     // System.out.println("Removing effect..." + PotionEffects.DEVOURING.get());
-                    player.removeEffect(PotionEffects.DEVOURING.get());
+                    player.removeEffect(PotionEffects.DEVOURING);
                 }
             }
         }
@@ -76,7 +76,7 @@ public class DevouringEffect {
             // Duration of effect
             int eff = (int) item.getEffectEfficiency(heldStack, devouringEffect);
 
-            if (level > 0 && !event.getEntity().hasEffect(PotionEffects.DEVOURING.get()) && !event.getEntity().level().isClientSide()) {
+            if (level > 0 && !event.getEntity().hasEffect(PotionEffects.DEVOURING) && !event.getEntity().level().isClientSide()) {
                 AoFPlayerData.getDevouring(event.getEntity()).ifPresent(devouring
                         -> {
                     // System.out.println("current level "+ devouring.getDevour());
@@ -86,18 +86,18 @@ public class DevouringEffect {
                     if (devouring.getDevour() >= 30) {
                         // System.out.println("Adding effect..." + PotionEffects.DEVOURING.get());
 
-                        event.getEntity().addEffect(new MobEffectInstance(PotionEffects.DEVOURING.get(),
+                        event.getEntity().addEffect(new MobEffectInstance(PotionEffects.DEVOURING,
                                 eff * 20, level, true, true, true));
                     }
                 });
-            } else if (heldStack.getItem() != item && event.getEntity().hasEffect(PotionEffects.DEVOURING.get()) && !event.getEntity().level().isClientSide()) {
+            } else if (heldStack.getItem() != item && event.getEntity().hasEffect(PotionEffects.DEVOURING) && !event.getEntity().level().isClientSide()) {
                 // System.out.println("Reset!");
 
                 AoFPlayerData.getDevouring(event.getEntity()).ifPresent
                         (PlayerDevouring::resetDevour);
 
                 // System.out.println("Removing effect..." + PotionEffects.DEVOURING.get());
-                event.getEntity().removeEffect(PotionEffects.DEVOURING.get());
+                event.getEntity().removeEffect(PotionEffects.DEVOURING);
             }
         }
     }

@@ -135,7 +135,7 @@ public class SoulChargedEffect extends ChargedAbilityEffect {
 
             for (LivingEntity livingTargets : targets) {
                 // System.out.println("Loop, brother");
-                livingTargets.setSecondsOnFire(seconds);
+                livingTargets.igniteForSeconds(seconds);
                 livingTargets.hurt(livingTargets.damageSources().magic(), damage);
             }
         }

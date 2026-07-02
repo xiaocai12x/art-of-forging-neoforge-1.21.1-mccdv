@@ -86,11 +86,11 @@ public class ResolveEffect {
     }
 
     private void applyEffects(int duration, LivingEntity user) {
-        user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, duration * 20,
+        user.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration * 20,
                 1, true, true, true));
-        user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, duration * 20,
+        user.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration * 20,
                 1, true, true, true));
-        user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, duration * 20,
+        user.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration * 20,
                 1, true, true, true));
     }
 }

@@ -49,7 +49,7 @@ public class SonicShockEffect extends ChargedAbilityEffect {
 
     @Override
     public void perform(Player attacker, InteractionHand hand, ItemModularHandheld item, ItemStack itemStack, LivingEntity target, Vec3 hitVec, int chargedTicks) {
-        if (!target.level().isClientSide) {
+        if (!target.level().isClientSide()) {
             // Sonic Boom damage
             int level = item.getEffectLevel(itemStack, sonicShockEffect);
 

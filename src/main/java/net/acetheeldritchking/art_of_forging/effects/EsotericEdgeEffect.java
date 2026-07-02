@@ -6,7 +6,6 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import se.mickelus.tetra.blocks.workbench.gui.WorkbenchStatsGui;
 import se.mickelus.tetra.gui.stats.bar.GuiStatBar;
@@ -52,31 +51,6 @@ public class EsotericEdgeEffect {
 
                 if (level > 0) {
                     target.hurt(target.damageSources().magic(), magicBonusDamage);
-                }
-            }
-        }
-    }
-
-    // This does the normal damage
-    @SubscribeEvent
-    public void onLivingIncomingDamageEvent(LivingIncomingDamageEvent event) {
-        Entity attackingEntity = event.getSource().getEntity();
-        // LivingEntity target = event.getEntity();
-
-        if (attackingEntity instanceof LivingEntity attacker) {
-            ItemStack heldStack = attacker.getMainHandItem();
-
-            if (heldStack.getItem() instanceof ModularItem item) {
-                // Magic Damage bonus
-                float level = item.getEffectLevel(heldStack, esotericEdgeEffect);
-
-                // Base attack damage
-                float baseAmount = event.getAmount();
-                // Bonus damage as a percentage
-                // float magicBonusDamage = baseAmount * (level/100);
-
-                if (level > 0) {
-                    event.setAmount(baseAmount);
                 }
             }
         }

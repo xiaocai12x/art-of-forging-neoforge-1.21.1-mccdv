@@ -59,7 +59,7 @@ public class LifeFiberLossEffect {
     private void grantEffects(LivingEntity target, int duration, int level) {
         target.addEffect(new MobEffectInstance(MobEffects.REGENERATION, duration * 20,
                 level - 1, true, true, true));
-        target.addEffect(new MobEffectInstance(MobEffects.STRENGTH, duration * 20,
+        target.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration * 20,
                 level - 1, true, true, true));
         target.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, duration * 20,
                 level - 1, true, true, true));

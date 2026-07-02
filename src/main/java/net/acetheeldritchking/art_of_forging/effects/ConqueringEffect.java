@@ -111,15 +111,15 @@ public class ConqueringEffect {
             int eff = (int) item.getEffectEfficiency(heldStack, conqueringEffect);
 
             if (level > 0 && !player.level().isClientSide()) {
-                player.addEffect(new MobEffectInstance(MobEffects.STRENGTH, eff * 20, 0,
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, eff * 20, 0,
                         true, true, true));
 
                 AoFPlayerData.getConquer(player).ifPresent(conquer ->
                 {
                     if (conquer.getConquer() == 5) {
-                        player.addEffect(new MobEffectInstance(PotionEffects.MORTAL_WOUNDS.get(), 20, level,
+                        player.addEffect(new MobEffectInstance(PotionEffects.MORTAL_WOUNDS, 20, level,
                                 false, false, false));
-                        player.addEffect(new MobEffectInstance(MobEffects.STRENGTH, eff * 20, 1,
+                        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, eff * 20, 1,
                                 true, true, true));
                     }
                 });

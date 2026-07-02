@@ -55,7 +55,7 @@ public class EvokingMawEffect {
                 if (level > 0 && !attacker.level().isClientSide())
                 {
                     target.addEffect(new MobEffectInstance
-                            (PotionEffects.EVOKING_MAW.get(), eff*20, level,
+                            (PotionEffects.EVOKING_MAW, eff*20, level,
                                     false, false, false));
                 }
             }

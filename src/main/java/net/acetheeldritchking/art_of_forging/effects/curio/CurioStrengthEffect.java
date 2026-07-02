@@ -55,7 +55,7 @@ public class CurioStrengthEffect implements ICurioItem {
                         int eff = (int) item.getEffectEfficiency(itemStack, strengthInfusedEffect);
 
                         if (level > 0) {
-                            event.getEntity().addEffect(new MobEffectInstance(MobEffects.STRENGTH, eff * 20,
+                            event.getEntity().addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, eff * 20,
                                     level - 1, true, true, true));
                         }
                     }

@@ -3,11 +3,13 @@ package net.acetheeldritchking.art_of_forging.item;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Arrays;
@@ -71,6 +73,7 @@ public class ScrollHelper {
     }
 
     public void write(ItemStack itemStack) {
-        itemStack.addTagElement("BlockEntityTag", ScrollHelper.write(new ScrollHelper[]{this}, new CompoundTag()));
+        itemStack.set(DataComponents.BLOCK_ENTITY_DATA,
+                CustomData.of(ScrollHelper.write(new ScrollHelper[]{this}, new CompoundTag())));
     }
 }

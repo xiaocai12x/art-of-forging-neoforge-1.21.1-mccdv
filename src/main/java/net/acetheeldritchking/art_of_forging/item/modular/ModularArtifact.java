@@ -1,23 +1,12 @@
 package net.acetheeldritchking.art_of_forging.item.modular;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import se.mickelus.tetra.gui.GuiModuleOffsets;
 import se.mickelus.tetra.items.modular.ModularItem;
-import se.mickelus.tetra.module.ItemModule;
-import se.mickelus.tetra.module.ItemUpgradeRegistry;
-import se.mickelus.tetra.module.schematic.RemoveSchematic;
 import top.theillusivec4.curios.api.type.capability.ICurio;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ModularArtifact extends ModularItem implements ICurio {
     public final static String artifactCasing = "artifact/casing";
@@ -42,33 +31,17 @@ public class ModularArtifact extends ModularItem implements ICurio {
         minorModuleKeys = new String[]{artifactAttachment};
 
         requiredModules = new String[]{artifactCasing, artifactInternal};
-
-        RemoveSchematic.registerRemoveSchematics(this, identifier);
-    }
-
-    @Override
-    public Collection<ItemModule> getAllModules(ItemStack stack) {
-        CompoundTag stackTag = getTag(stack);
-        if (stackTag != null) {
-            return Stream.concat(Arrays.stream(getMajorModuleKeys()), Arrays.stream(getMinorModuleKeys()))
-                    .map(stackTag::getString)
-                    .map(ItemUpgradeRegistry.instance::getModule)
-                    .filter(Objects::nonNull)
-                    .collect(Collectors.toList());
-        }
-
-        return Collections.emptyList();
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public GuiModuleOffsets getMajorGuiOffsets() {
+    public GuiModuleOffsets getMajorGuiOffsets(ItemStack stack) {
         return majorOffsets;
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public GuiModuleOffsets getMinorGuiOffsets() {
+    public GuiModuleOffsets getMinorGuiOffsets(ItemStack stack) {
         return minorOffsets;
     }
 
