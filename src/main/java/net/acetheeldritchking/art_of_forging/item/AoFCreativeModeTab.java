@@ -18,10 +18,12 @@ public class AoFCreativeModeTab {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(AoFRegistry.FORGED_STEEL_INGOT.get()))
                     .title(Component.translatable("creativetab.art_of_forging"))
                     .displayItems((pParameters, pOutput) -> {
+                        pOutput.accept(AoFRegistry.MODULAR_ARTIFACT.get());
                         pOutput.accept(AoFRegistry.CURIOUS_ARTIFACT.get());
 
 
                         pOutput.accept(AoFRegistry.RESONANT_ALLOY.get());
+                        pOutput.accept(AoFRegistry.FORGED_STEEL_INGOT.get());
                         pOutput.accept(AoFRegistry.VOBRITE_CRYSTAL.get());
                         pOutput.accept(AoFRegistry.VOBRIVIUM_INGOT.get());
                         pOutput.accept(AoFRegistry.ENDSTEEL_INGOT.get());

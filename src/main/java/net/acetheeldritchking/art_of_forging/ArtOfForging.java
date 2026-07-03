@@ -5,6 +5,7 @@ import net.acetheeldritchking.art_of_forging.effects.*;
 import net.acetheeldritchking.art_of_forging.effects.curio.*;
 import net.acetheeldritchking.art_of_forging.effects.potion.PotionEffects;
 import net.acetheeldritchking.art_of_forging.item.AoFCreativeModeTab;
+import net.acetheeldritchking.art_of_forging.item.AoFScrollCreativeItems;
 import net.acetheeldritchking.art_of_forging.loot.ModLootModifiers;
 import net.acetheeldritchking.art_of_forging.networking.AoFPackets;
 import net.neoforged.api.distmarker.Dist;
@@ -35,6 +36,7 @@ public class ArtOfForging {
         bus.addListener(this::commonSetup);
         // Curios
         bus.addListener(this::enqueueIMC);
+        bus.addListener(AoFScrollCreativeItems::buildContents);
 
         // Items //
         AoFRegistry.ITEMS.register(bus);

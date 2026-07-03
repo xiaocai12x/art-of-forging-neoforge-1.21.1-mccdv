@@ -25,7 +25,7 @@
             },
             "aspects": {
                 "edged_weapon": 2,
-                "blockBreaker": 2,
+                "block_breaker": 2,
                 "breakable": 2
             },
             "effects": {
