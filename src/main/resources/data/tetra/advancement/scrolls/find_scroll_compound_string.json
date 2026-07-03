@@ -1,0 +1,40 @@
+{
+  "display": {
+    "icon": {
+      "id": "tetra:scroll_rolled",
+      "components": {
+        "tetra:scroll_data": {
+          "key": "bow/string/compound_string",
+          "material": 1,
+          "ribbon": "19e588"
+        }
+      }
+    },
+    "title": {
+      "translate": "tetra.advancements.scrolls.find_scroll_compound_string.title"
+    },
+    "description": {
+      "translate": "tetra.advancements.scrolls.find_scroll_compound_string.description"
+    }
+  },
+  "parent": "tetra:scrolls/root",
+  "criteria": {
+    "find": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tetra:scroll_rolled"
+            ],
+            "predicates": {
+              "tetra:scroll_data": {
+                "key": "bow/string/compound_string"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

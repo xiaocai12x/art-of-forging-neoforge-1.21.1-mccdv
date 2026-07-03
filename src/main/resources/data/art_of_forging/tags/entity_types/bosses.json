@@ -35,18 +35,6 @@
         {
             "id": "cataclysm:the_leviathan",
             "required": false
-        },
-        {
-            "id": "alexsmobs:void_worm",
-            "required": false
-        },
-        {
-            "id": "alexsmobs:void_worm_part",
-            "required": false
-        },
-        {
-            "id": "alexsmobs:warped_mosco",
-            "required": false
         }
     ]
 }

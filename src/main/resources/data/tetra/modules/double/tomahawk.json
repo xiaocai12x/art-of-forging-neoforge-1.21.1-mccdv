@@ -20,7 +20,7 @@
 			},
 			"aspects": {
 				"blockBreaker": 1,
-				"edgedWeapon": 2,
+				"edged_weapon": 2,
 				"throwable": 2,
 				"breakable": 2
 			},

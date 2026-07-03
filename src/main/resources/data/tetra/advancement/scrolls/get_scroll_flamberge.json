@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "id": "tetra:scroll_rolled",
+      "components": {
+        "tetra:scroll_data": {
+          "key": "tetra/flamberge_blade",
+          "material": 2,
+          "ribbon": "ff9612"
+        }
+      }
+    },
+    "frame": "goal",
+    "title": {
+      "translate": "tetra.advancements.scrolls.get_scroll_flamberge.title"
+    },
+    "description": {
+      "translate": "tetra.advancements.scrolls.get_scroll_flamberge.description"
+    }
+  },
+  "parent": "tetra:scrolls/root",
+  "criteria": {
+    "find": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tetra:scroll_rolled"
+            ],
+            "predicates": {
+              "tetra:scroll_data": {
+                "key": "tetra/flamberge_blade"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

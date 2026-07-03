@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "id": "tetra:scroll_rolled",
+      "components": {
+        "tetra:scroll_data": {
+          "key": "sword/katana/katana_blade",
+          "material": 2,
+          "ribbon": "dbff10"
+        }
+      }
+    },
+    "frame": "goal",
+    "title": {
+      "translate": "tetra.advancements.scrolls.get_scroll_katana.title"
+    },
+    "description": {
+      "translate": "tetra.advancements.scrolls.get_scroll_katana.description"
+    }
+  },
+  "parent": "tetra:scrolls/root",
+  "criteria": {
+    "find": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tetra:scroll_rolled"
+            ],
+            "predicates": {
+              "tetra:scroll_data": {
+                "key": "sword/katana/katana_blade"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
